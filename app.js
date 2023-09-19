@@ -26,10 +26,8 @@ cloudinary.config({
 
 const user = require("./routes/userRoutes") 
 
-const admin = require("./routes/adminRoutes") 
 
   app.use("/user",user)
 
-  app.use("/admin", admin)
   
   module.exports = app

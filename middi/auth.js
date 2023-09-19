@@ -2,6 +2,10 @@
 
 const jwt = require("jsonwebtoken")
 
+const { isValidObjectId } = require("mongoose")
+
+const blogModel = require("../models/blogModel")
+
 
 
 //==================== authentication ===============================
@@ -34,7 +38,8 @@ else {
 
 
 // ======================= adimin authorizartion ====================
-exports.adminParamAuthorisation = async function (req, res, next) {
+
+exports.adminAuthorisation = async function (req, res, next) {
     
     try {
 

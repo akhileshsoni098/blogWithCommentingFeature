@@ -3,13 +3,14 @@ const objectId = mongoose.Schema.Types.ObjectId;
 
 // ================== **This is what how our blog model will look like**==================================
 
-const mongoose = require('mongoose');
-
 const commentSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'authorData', 
+        ref: 'authorData',
         required: true
+    },
+    fullName: {
+        type: String,
     },
     commentText: {
         type: String,
@@ -19,8 +20,14 @@ const commentSchema = new mongoose.Schema({
         {
             userId: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'authorData', 
+                ref: 'authorData',
                 required: true
+            },
+            commentId: {
+                type: mongoose.Schema.Types.ObjectId,
+            },
+            fullName: {
+                type: String,
             },
             replyText: {
                 type: String,
@@ -42,7 +49,7 @@ const blogSchema = new mongoose.Schema({
     },
     authorId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'AuthorData', 
+        ref: 'authorData',
         required: true
     },
     tags: [{
